@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class studentAppArrayList {
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("How many data you do have?: ");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("How many data you do have? ");
         int val = Integer.parseInt(reader.readLine());
         ArrayList<Student> myList = new ArrayList<Student>();
         myList = inputData(myList,val);
