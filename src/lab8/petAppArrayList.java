@@ -18,8 +18,7 @@ public class petAppArrayList {
     private static void showData(ArrayList<Pet> myList) {
         System.out.println("My Pets data show below : ");
         for (int i = 0; i < myList.size(); i++) {
-            System.out.println("Name: "+myList.get(i).getName());
-            System.out.println("Age: "+myList.get(i).getAge());
+            System.out.println(myList.get(i).getClass().getSimpleName()+" "+myList.get(i).toString());
 
 
         }
@@ -27,29 +26,26 @@ public class petAppArrayList {
 
     private static ArrayList<Pet> inputData(ArrayList<Pet> myList, int val) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Please Enter you pets info. ");
+        System.out.println("Please Enter you pets info. \n");
         for (int i = 1; i <= val; i++) {
-            Pet p = new Pet() {
-                @Override
-                public void makeNoise() {
-                }
-            };
             System.out.print("Pet: " + i + ". ");
-            System.out.print("if it is a Dog type 1 or Cat type other. : ");
+            System.out.print("if it is a \"Dog\" type 1 or \"Cat\" type other. : ");
             int t = Integer.parseInt(reader.readLine());
-            if (i <= 1) {
+            if (t == 1) {
+                Dog d = new Dog();
                 System.out.print("Dog Name: ");
-                p.setName(reader.readLine());
+                d.setName(reader.readLine());
                 System.out.print("Dog Age: ");
-                p.setAge(Integer.parseInt(reader.readLine()));
+                d.setAge(Integer.parseInt(reader.readLine()));
+                myList.add(d);
             } else {
+                Cat c = new Cat();
                 System.out.print("Cat Name: ");
-                p.setName(reader.readLine());
+                c.setName(reader.readLine());
                 System.out.print("Cat Age: ");
-                p.setAge(Integer.parseInt(reader.readLine()));
+                c.setAge(Integer.parseInt(reader.readLine()));
+                myList.add(c);
             }
-                myList.add(p);
-
         }
         return myList;
         }
